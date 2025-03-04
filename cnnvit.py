@@ -59,9 +59,9 @@ transform = transforms.Compose([
 ])
 
 # Directory with raw images
-image_dir = "/Users/jimmy/projects/combined_unsplit"
+image_dir = "/path/to/images"
 # CSV with image file names in column 1 and labels in column 2
-labels_file = "/Users/jimmy/projects/octid_octdl_complete_extensions.csv"
+labels_file = "/path/to/csv"
 
 # Create dataset
 dataset = MedicalImageDataset(image_dir, labels_file, transform=transform)
@@ -160,8 +160,8 @@ if __name__ == '__main__':
     cnn_vit_model.to(device)
     criterion = nn.CrossEntropyLoss()
 
-    #AdamW chosen for its effectiveness with Vision Transformer models
+    #AdamW chosen for its effectiveness with Vision Transformers
     optimizer = torch.optim.AdamW(cnn_vit_model.parameters(), lr=0.0008)
-    trained_model = train_model(cnn_vit_model, dataloader_train, dataloader_val, epochs=70, criterion=criterion, optimizer=optimizer, device=device)
+    trained_model = train_model(cnn_vit_model, dataloader_train, epochs=70, criterion=criterion, optimizer=optimizer, device=device)
     torch.save(trained_model.state_dict(), "cnn_vit_checkpoint.pth")
     print("Training complete. Model saved.")
