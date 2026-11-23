@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "octcls"
+version = "0.1.0"
+description = "Classifier training with YOLO ROI hints and CAM bootstrap"
+readme = "README.md"
+requires-python = ">=3.8"
+dependencies = [
+    "torch>=2.0",
+    "torchvision>=0.15",
+    "numpy>=1.21",
+    "pandas>=1.3",
+    "Pillow>=9.0",
+    "opencv-python>=4.7",
+    "scikit-learn>=1.0",
+    "matplotlib>=3.5",
+    "ultralytics>=8.0",
+    "openpyxl>=3.1",
+]
+
+[tool.setuptools.packages.find]
+include = ["octcls", "octcls.*"]
+
+[project.scripts]
+oct-train-classifier = "octcls.cli.train_classifier:main"
+oct-infer = "octcls.cli.infer_classifier:main"
+oct-gen-cam = "octcls.cli.gen_cam_labels:main"
+oct-prepare-yolo = "octcls.cli.prepare_yolo_split:main"
+oct-train-yolo = "octcls.cli.train_yolo:main"
+

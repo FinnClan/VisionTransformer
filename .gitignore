@@ -1,0 +1,41 @@
+# OS
+.DS_Store
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.venv/
+.env
+*.egg-info/
+/build/
+/dist/
+
+# IDE
+.idea/
+.vscode/
+
+# Artifacts / outputs
+runs/
+cam_outputs/
+.yolo_cache/
+/.yolo_cache_cam_export/
+/cam_exports_v2/
+/training_curves.png
+/.octcls-checkpoint-*/
+*.pth
+*_labels.json
+*.pt
+
+# Generated datasets
+oct_yolo/
+cam_labels/
+/cam_labels_tight/
+/cam_dataset/
+/cam_dataset.yaml
+
+# Local scripts with machine-specific paths
+/camgen.sh
+/cache_warmer.sh
+
